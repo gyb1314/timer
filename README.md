@@ -1,6 +1,6 @@
 ## timer
-[![Go](https://github.com/antlabs/timer/workflows/Go/badge.svg)](https://github.com/antlabs/timer/actions)
-[![codecov](https://codecov.io/gh/antlabs/timer/branch/master/graph/badge.svg)](https://codecov.io/gh/antlabs/timer)
+[![Go](https://github.com/gyb1314/timer/workflows/Go/badge.svg)](https://github.com/gyb1314/timer/actions)
+[![codecov](https://codecov.io/gh/gyb1314/timer/branch/master/graph/badge.svg)](https://codecov.io/gh/antlabs/timer)
 
 timer是高性能定时器库
 ## feature
@@ -11,7 +11,7 @@ timer是高性能定时器库
 ## 一次性定时器
 ```go
 import (
-    "github.com/antlabs/timer"
+    "github.com/gyb1314/timer"
     "log"
 )
 
@@ -31,7 +31,7 @@ func main() {
 ## 周期性定时器
 ```go
 import (
-    "github.com/antlabs/timer"
+    "github.com/gyb1314/timer"
     "log"
 )
 
@@ -72,7 +72,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/antlabs/timer"
+	"github.com/gyb1314/timer"
 )
 
 func main() {
@@ -97,7 +97,7 @@ func main() {
 ## 选择不同的的数据结构
 ```go
 import (
-    "github.com/antlabs/timer"
+    "github.com/gyb1314/timer"
     "log"
 )
 
@@ -107,7 +107,7 @@ func main() {
 ```
 ## benchmark
 
-github.com/antlabs/timer 性能最高
+github.com/gyb1314/timer 性能最高
 ```
 goos: linux
 goarch: amd64

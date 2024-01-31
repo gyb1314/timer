@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/antlabs/timer"
+	"github.com/gyb1314/timer"
 )
 
 // 这是一个长时间测试代码

@@ -252,7 +252,7 @@ func (t *timeWheel) run(get10Ms func() time.Duration) {
 
 	if ms10 < t.curTimePoint {
 
-		fmt.Printf("github.com/antlabs/timer:Time has been called back?from(%d)(%d)\n",
+		fmt.Printf("github.com/gyb1314/timer:Time has been called back?from(%d)(%d)\n",
 			ms10, t.curTimePoint)
 
 		t.curTimePoint = ms10

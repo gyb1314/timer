@@ -16,15 +16,14 @@ const (
 // 先使用sync.Mutex实现功能
 // 后面使用cas优化
 type Time struct {
-	timeNode
-	sync.Mutex
-
 	// |---16bit---|---16bit---|------32bit-----|
 	// |---level---|---index---|-------seq------|
 	// level 在near盘子里就是1, 在T2ToTt[0]盘子里就是2起步
 	// index 就是各自盘子的索引值
 	// seq   自增id
 	version uint64
+	timeNode
+	sync.Mutex
 }
 
 func newTimeHead(level uint64, index uint64) *Time {
@@ -52,12 +51,12 @@ func (t *Time) lockPushBack(node *timeNode, level uint64, index uint64) {
 }
 
 type timeNode struct {
+	version    uint64 //保存节点版本信息
 	expire     uint64
 	userExpire time.Duration
 	callback   func()
 	stop       uint32
 	list       unsafe.Pointer //存放表头信息
-	version    uint64         //保存节点版本信息
 	isSchedule bool
 
 	list.Head
@@ -67,8 +66,10 @@ type timeNode struct {
 // 1.存在于初始化链表中
 // 2.被移动到tmp链表
 // 3.1 和 3.2是if else的状态
-// 	3.1被移动到new链表
-// 	3.2直接执行
+//
+//	3.1被移动到new链表
+//	3.2直接执行
+//
 // 1和3.1状态是没有问题的
 // 2和3.2状态会是没有锁保护下的操作,会有数据竞争
 func (t *timeNode) Stop() {

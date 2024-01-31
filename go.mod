@@ -1,4 +1,4 @@
-module github.com/antlabs/timer
+module github.com/gyb1314/timer
 
 go 1.19
 
